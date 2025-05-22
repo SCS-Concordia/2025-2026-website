@@ -1,0 +1,22 @@
+{
+  "name": "scs-concordia-website",
+  "version": "1.0.0",
+  "description": "Website for the Software Engineering and Computer Science Society of Concordia University",
+  "main": "public/index.html",
+  "scripts": {
+    "build": "tailwindcss build public/css/tailwind.css -o public/css/tailwind.output.css",
+    "watch": "tailwindcss build public/css/tailwind.css -o public/css/tailwind.output.css --watch"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.2.19"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "SCS",
+    "Concordia",
+    "website",
+    "tailwindcss"
+  ],
+  "author": "SCS Concordia",
+  "license": "MIT"
+}

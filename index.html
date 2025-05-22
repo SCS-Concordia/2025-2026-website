@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCS Concordia - Software Engineering and Computer Science Society</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .announcement-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ffa500);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Title -->
+                <div class="flex items-center space-x-3">
+                    <img src="./src/assets/logo.png" alt="SCS Concordia Logo" class="h-10 w-10">
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-800">SCS Concordia</h1>
+                        <p class="text-xs text-gray-600 hidden sm:block">Software Engineering & Computer Science Society
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                    <a href="#events" class="text-gray-700 hover:text-blue-600 transition">Upcoming Events</a>
+                    <a href="#networking" class="text-gray-700 hover:text-blue-600 transition">The Society</a>
+                    <a href="#competitions" class="text-gray-700 hover:text-blue-600 transition">Competitions</a>
+                    <a href="#team" class="text-gray-700 hover:text-blue-600 transition">Our Team</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars text-gray-700 text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden fixed inset-y-0 left-0 w-64 bg-white shadow-xl z-50">
+            <div class="flex justify-between items-center p-4 border-b">
+                <h2 class="text-lg font-bold">Menu</h2>
+                <button onclick="toggleMobileMenu()">
+                    <i class="fas fa-times text-gray-700 text-xl"></i>
+                </button>
+            </div>
+            <div class="p-4 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-blue-600 py-2"
+                    onclick="toggleMobileMenu()">Home</a>
+                <a href="#networking" class="block text-gray-700 hover:text-blue-600 py-2"
+                    onclick="toggleMobileMenu()">Networking</a>
+                <a href="#technical" class="block text-gray-700 hover:text-blue-600 py-2"
+                    onclick="toggleMobileMenu()">Technical</a>
+                <a href="#competitions" class="block text-gray-700 hover:text-blue-600 py-2"
+                    onclick="toggleMobileMenu()">Competitions</a>
+                <a href="#events" class="block text-gray-700 hover:text-blue-600 py-2"
+                    onclick="toggleMobileMenu()">Upcoming Events</a>
+                <a href="#contact" class="block text-gray-700 hover:text-blue-600 py-2"
+                    onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner text-white text-center py-3 mt-16">
+        <p class="text-sm font-medium">
+            <i class="fas fa-star mr-2"></i>
+            New Activity Alert: AlgoTime sessions still continue during the summer! Join us every Friday from 4 PM to 6 PM!
+            <i class="fas fa-star ml-2"></i>
+        </p>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <img src="./src/assets/computer_logo.png" alt="SCS Concordia Logo"
+                class="mx-auto mb-8 rounded-full shadow-lg">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">SCS Concordia</h1>
+            <h2 class="text-xl md:text-2xl mb-8 opacity-90">Software Engineering and Computer Science Society</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
+                Welcome to Concordia University's premier tech community! We're here to support your journey in software
+                engineering and computer science through networking, technical development, and exciting competitions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#events"
+                    class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105">
+                    Join our next events
+                </a>
+                <a href="#contact"
+                    class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition transform hover:scale-105">
+                    Get in touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events Section -->
+    <section id="events" class="py-16 bg-gradient-to-r from-orange-400 to-pink-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Upcoming Events & Quick Links</h2>
+                <p class="text-white text-lg opacity-90">Don't miss out on our latest workshops, competitions, and
+                    social events!</p>
+            </div>
+
+            <div class="flex justify-center"></div>
+            <!-- <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 flex justify-center align-center"> -->
+
+            <!-- Event Card 1 -->
+            <!-- <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-blue-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Git Workshop</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Master version control with our comprehensive Git workshop. Perfect for beginners!</p>
+                    <div class="text-sm text-gray-500 mb-4">
+                        <i class="fas fa-calendar mr-2"></i>November 15, 2024
+                        <br>
+                        <i class="fas fa-clock mr-2"></i>6:00 PM - 8:00 PM
+                    </div>
+                    <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition inline-block">
+                        Register Now
+                    </a>
+                </div> -->
+
+            <!-- Event Card 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                <!-- <div class="bg-white rounded-lg shadow-lg p-6 card-hover"> -->
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-brain text-green-500 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-bold">AlgoTime</h3>
+                </div>
+                <p class="text-gray-600 mb-4">AlgoTime is our weekly Leetcode practice session. Just bring your laptop,
+                    your problem-solving spirit, and, of course, your enthusiasm for coding. Whether you're a seasoned
+                    coder or just starting out, these sessions are designed to help you grow and learn together.</p>
+                <div class="text-sm text-gray-500 mb-4">
+                    <i class="fas fa-calendar mr-2"></i>Every Friday
+                    <br>
+                    <i class="fas fa-clock mr-2"></i>4:00 PM - 6:00 PM
+                </div>
+                <a href="#contact"
+                    class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition inline-block">
+                    Join our Discord for more info!
+                </a>
+            </div>
+
+            <!-- Event Card 3 -->
+            <!-- <div class="bg-white rounded-lg shadow-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-purple-500 text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Wine & Cheese</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4">Network with industry professionals and fellow students in a relaxed setting.</p>
+                    <div class="text-sm text-gray-500 mb-4">
+                        <i class="fas fa-calendar mr-2"></i>November 22, 2024
+                        <br>
+                        <i class="fas fa-clock mr-2"></i>7:00 PM - 9:00 PM
+                    </div>
+                    <a href="#" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition inline-block">
+                        RSVP
+                    </a>
+                </div> -->
+
+        </div>
+        </div>
+    </section>
+
+    <!-- Networking Section -->
+    <section id="networking" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Networking, Social and Academic Events
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Networking is an essential aspect of launching your career. Meet your future employer at one of the
+                    various events we host such as guest speakers, company tours, and Wine and Cheese.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Social Gatherings -->
+                <div class="text-center card-hover bg-green-50 p-6 rounded-lg">
+                    <i class="fas fa-users text-4xl text-green-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Academic Events</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Workshops</li>
+                        <li>• Speaker Panels</li>
+                        <li>• Study Sessions</li>
+                    </ul>
+                </div>
+
+                <!-- Professional Events -->
+                <div class="text-center card-hover bg-blue-50 p-6 rounded-lg">
+                    <i class="fas fa-handshake text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Yearly Wine & Cheese</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• 12+ companies</li>
+                        <li>• 25+ professionals and recruiters</li>
+                        <li>• All fields of CS</li>
+                    </ul>
+                </div>
+
+                <!-- Community Building -->
+                <div class="text-center card-hover bg-purple-50 p-6 rounded-lg">
+                    <i class="fas fa-heart text-4xl text-purple-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Social Events</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li>• Movie Nights</li>
+                        <li>• Lizard Lounges</li>
+                        <li>• Gaming Nights</li>
+                        <li>• Hangouts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitions Section -->
+    <section id="competitions" class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Competitions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Are you ready to unleash your inner innovator, problem solver, and team player? Step into the world
+                    of competitive programming that will challenge your skills and ignite your passion for excellence.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Hello World Hackathon -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-lg shadow-lg card-hover">
+                    <img src="https://placehold.co/400x200?text=Hello+World+Hackathon" alt="Hello World Hackathon"
+                        class="w-full h-40 object-cover rounded mb-4">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-rocket text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold">Hello World Hackathon</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        If you're new to coding or taking your first steps in computer science, the "Hello World
+                        Competition" is the perfect starting point. Join us in this beginner-friendly event, where you
+                        can explore the world of programming, showcase your creativity, and bring your first projects to
+                        life. This competition takes place mid-September.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Beginner-Friendly</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Creative
+                            Projects</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Team Building</span>
+                    </div>
+                </div>
+
+                <!-- CS Games -->
+                <div class="bg-gradient-to-br from-red-50 to-orange-50 p-8 rounded-lg shadow-lg card-hover">
+                    <img src="https://placehold.co/400x200?text=CS+Games" alt="CS Games"
+                        class="w-full h-40 object-cover rounded mb-4">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-trophy text-3xl text-red-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold">CS Games</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        For those seeking a more intense challenge, the CS Games is for you. It's a thrilling battle of
+                        wits, where you'll face off against the sharpest minds from universities across the country.
+                        It's not just a competition; it's a chance to represent our institution and measure your skills
+                        on a broader stage. Try out in January/February to get on the Concordia teams and compete in
+                        March.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Advanced Level</span>
+                        <span
+                            class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm">Inter-University</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Prestigious</span>
+                    </div>
+                </div>
+
+                <!-- CyberSci -->
+                <div class="bg-gradient-to-br from-green-50 to-lime-50 p-8 rounded-lg shadow-lg card-hover">
+                    <img src="https://placehold.co/400x200?text=CyberSci" alt="CyberSci"
+                        class="w-full h-40 object-cover rounded mb-4">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-shield-alt text-3xl text-green-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold">CyberSci</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        CyberSci is Canada’s national cybersecurity competition. Compete in regional qualifiers and, if
+                        you advance, represent Concordia at the national finals. This event is perfect for students
+                        interested in cybersecurity, ethical hacking, and digital forensics, and takes place each
+                        mid-November.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Cybersecurity</span>
+                        <span class="bg-lime-100 text-lime-800 px-3 py-1 rounded-full text-sm">National</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Team-Based</span>
+                    </div>
+                </div>
+
+                <!-- NorthSec -->
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-8 rounded-lg shadow-lg card-hover">
+                    <img src="https://placehold.co/400x200?text=NorthSec" alt="NorthSec"
+                        class="w-full h-40 object-cover rounded mb-4">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-flag text-3xl text-blue-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold">NorthSec</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        NorthSec is one of the largest applied security events in North America, featuring a world-class
+                        Capture The Flag (CTF) competition. Join the Concordia team to test your skills against
+                        international competitors in a high-energy, hands-on environment, every year in May.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Capture The Flag</span>
+                        <span class="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-sm">International</span>
+                        <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm">Security</span>
+                    </div>
+                </div>
+
+                <!-- ICC -->
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg shadow-lg card-hover">
+                    <img src="https://placehold.co/400x200?text=ICC" alt="International Collegiate Contest"
+                        class="w-full h-40 object-cover rounded mb-4">
+                    <div class="flex items-center mb-6">
+                        <i class="fas fa-users-cog text-3xl text-purple-500 mr-4"></i>
+                        <h3 class="text-2xl font-bold">International Collegiate Contest (ICC)</h3>
+                    </div>
+                    <p class="text-gray-700 mb-6">
+                        The ICC is a global programming competition where teams of students solve complex algorithmic
+                        problems under time pressure. Represent Concordia and compete with the best from around the
+                        world. Tryouts are held in the fall semester.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Algorithms</span>
+                        <span class="bg-pink-100 text-pink-800 px-3 py-1 rounded-full text-sm">Global</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Teamwork</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Meet the Team</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our dedicated executive team works hard to bring you the best events, competitions, and
+                    opportunities at SCS Concordia.
+                </p>
+            </div>
+            <!-- Group Photo -->
+            <div class="flex justify-center mb-12">
+                <img src="https://placehold.co/800x250?text=Group+Photo" alt="SCS Concordia Team Group Photo"
+                    class="rounded-lg shadow-lg w-full max-w-3xl object-cover">
+            </div>
+            <!-- Sub-teams Grid -->
+            <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <!-- President -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-bold mb-3 text-purple-700">President</h3>
+                    <ul class="text-gray-700 space-y-1">
+                        <li>Alina Alenikova</li>
+                    </ul>
+                </div>
+                <!-- Finance -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-bold mb-3 text-purple-700">Finance</h3>
+                    <ul class="text-gray-700 space-y-1">
+                        <li>Suryia Paramathypathy</li>
+                        <li>Rifat Katranci</li>
+                    </ul>
+                </div>
+                <!-- Internal -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-bold mb-3 text-purple-700">Internal</h3>
+                    <ul class="text-gray-700 space-y-1">
+                        <li>Constance Prevot</li>
+                        <li>Thanh-Nam Nguyen</li>
+                    </ul>
+                </div>
+                <!-- External -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-bold mb-3 text-purple-700">External</h3>
+                    <ul class="text-gray-700 space-y-1">
+                        <li>Brandon Toledano</li>
+                        <li>Abdessalam Ait Haqi</li>
+                        <li>Ken Ko Latchman</li>
+                    </ul>
+                </div>
+                <!-- Marketing -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-bold mb-3 text-purple-700">Marketing</h3>
+                    <ul class="text-gray-700 space-y-1">
+                        <li>Elsa Rufenacht</li>
+                        <li>Sudhansu Mohanty</li>
+                        <li>Camila Rojas</li>
+                        <li>Catalina Tipa</li>
+                        <li>Merill Bobotis</li>
+                        <li>Klisea Plaku</li>
+                        <li>Trisha Chakrabarty</li>
+                        <li>Niloofar Nikbakht</li>
+                    </ul>
+                </div>
+                <!-- Social Events -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-bold mb-3 text-purple-700">Social Events</h3>
+                    <ul class="text-gray-700 space-y-1">
+                        <li>Taief LAST</li>
+                        <li>Renaud Bernier</li>
+                        <li>Alisa Ignatina</li>
+                        <li>Hy Khang Tran</li>
+                    </ul>
+                </div>
+                <!-- Academic Events -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-bold mb-3 text-purple-700">Academic Events</h3>
+                    <ul class="text-gray-700 space-y-1">
+                        <li>Marwa Hammani</li>
+                        <li>Wiame Kotbi</li>
+                        <li>Réa Mourad</li>
+                        <li>Dana Abousharbin</li>
+                    </ul>
+                </div>
+                <!-- Competitions -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 p-6 rounded-lg shadow-lg card-hover">
+                    <h3 class="text-xl font-bold mb-3 text-purple-700">Competitions</h3>
+                    <ul class="text-gray-700 space-y-1">
+                        <li>Alexander Chneerov</li>
+                        <li>Paulina Aguayo Dupin</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ...existing code... -->
+
+    <!-- Contact & Social Media Section -->
+    <section id="contact" class="py-16 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Connected</h2>
+                <p class="text-xl opacity-90 max-w-3xl mx-auto">
+                    Follow us on social media and join our community to stay updated on events, workshops, and
+                    opportunities!
+                </p>
+            </div>
+
+            <div class="grid gap-6 mb-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/scs.concordia/"
+                    class="flex flex-col items-center bg-white bg-opacity-20 p-6 rounded-lg text-center hover:bg-opacity-30 transition card-hover h-full">
+                    <i class="fab fa-instagram text-4xl mb-3"></i>
+                    <h3 class="text-lg font-bold">Instagram</h3>
+                    <p class="opacity-80">@scs.concordia</p>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/company/scs-concordia/posts/?feedView=all"
+                    class="flex flex-col items-center bg-white bg-opacity-20 p-6 rounded-lg text-center hover:bg-opacity-30 transition card-hover h-full">
+                    <i class="fab fa-linkedin text-4xl mb-3"></i>
+                    <h3 class="text-lg font-bold">LinkedIn</h3>
+                    <p class="opacity-80">SCS Concordia</p>
+                </a>
+
+                <!-- Discord -->
+                <a href="https://discord.gg/7SdGtVTVUW"
+                    class="flex flex-col items-center bg-white bg-opacity-20 p-6 rounded-lg text-center hover:bg-opacity-30 transition card-hover h-full">
+                    <i class="fab fa-discord text-4xl mb-3"></i>
+                    <h3 class="text-lg font-bold">Discord</h3>
+                    <p class="opacity-80">Join Server</p>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/scsconcordia/"
+                    class="flex flex-col items-center bg-white bg-opacity-20 p-6 rounded-lg text-center hover:bg-opacity-30 transition card-hover h-full">
+                    <i class="fab fa-facebook text-4xl mb-3"></i>
+                    <h3 class="text-lg font-bold">Facebook</h3>
+                    <p class="opacity-80">SCS Concordia</p>
+                </a>
+
+                <!-- Newsletter -->
+                <a href="https://scsconcordia.us12.list-manage.com/subscribe?u=4c052a132d5eb23fe2e2712b9&id=22644f4443"
+                    class="flex flex-col items-center bg-white bg-opacity-20 p-6 rounded-lg text-center hover:bg-opacity-30 transition card-hover h-full">
+                    <i class="fas fa-envelope-open-text text-4xl mb-3"></i>
+                    <h3 class="text-lg font-bold">Newsletter</h3>
+                    <p class="opacity-80">Subscribe for Updates</p>
+                </a>
+            </div>
+
+            <div class="max-w-xl mx-auto bg-white bg-opacity-10 rounded-lg p-8 text-center shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">Questions?</h3>
+                <p class="text-lg mb-6 opacity-90">
+                    Reach out to us for more information about joining SCS Concordia or our upcoming events.
+                </p>
+                <a href="mailto:communications@scsconcordia.ca"
+                    class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105 inline-block">
+                    <i class="fas fa-envelope mr-2"></i>
+                    Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-lg font-bold">SCS Concordia</h3>
+                    <p class="text-gray-400">Software Engineering and Computer Science Society</p>
+                    <p class="text-gray-400">Concordia University</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400">&copy; 2024 SCS Concordia. All rights reserved.</p>
+                    <p class="text-gray-400">Made with 💜 by the SCS team</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function (event) {
+            const menu = document.getElementById('mobileMenu');
+            const menuButton = event.target.closest('.md\\:hidden');
+
+            if (!menu.contains(event.target) && !menuButton && menu.classList.contains('open')) {
+                menu.classList.remove('open');
+            }
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function () {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+
+</html>
